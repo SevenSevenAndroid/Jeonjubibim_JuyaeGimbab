@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    xmlns:tools = "http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="data"
+            type="org.sopt.androidseminar.home.dto.RepositoryResponseModelItem" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/constraintlayout_item_github"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@drawable/item_divider"
+    android:foreground="?attr/selectableItemBackground">
+
+    <TextView
+        android:id="@+id/github_repository_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:text ="@{data.name}"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text = "RepositoryName"/>
+
+
+    <TextView
+        android:id="@+id/github_repository_explain"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text ="@{data.description != null ? data.description : @string/no_description}"
+        android:textColor="@{data.description != null ? @color/purple : @color/black}"
+        android:textSize="12sp"
+        android:paddingTop="4dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/github_repository_name"
+        tools:text = "Repository Explanation"/>
+
+    <TextView
+        android:id="@+id/github_repository_language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{data.language.toString()}"
+        android:textSize="10sp"
+        app:layout_constraintTop_toBottomOf="@id/github_repository_explain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text = "Language"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -61,4 +61,9 @@
 알아, 나도 언제나 같은 마음이야 baby
 아마도 우린 오래 아주 오래 함께할 거야 접기
     </string>
+
+
+    <string name="no_description">NO DESCRIPTION</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

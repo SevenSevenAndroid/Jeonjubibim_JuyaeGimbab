@@ -1,13 +1,14 @@
-package org.sopt.androidseminar
+package org.sopt.androidseminar.signin
 
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Toast
+import org.sopt.androidseminar.signup.SignUpActivity
 import org.sopt.androidseminar.databinding.ActivitySignInBinding
+import org.sopt.androidseminar.home.view.HomeActivity
 
 class SignInActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignInBinding
@@ -39,6 +40,7 @@ class SignInActivity : AppCompatActivity() {
                 ).show()
                 val intent = Intent(this@SignInActivity, HomeActivity::class.java)
                 startActivity(intent)
+                finish()
             }
         }
         binding.textviewSignin.setOnClickListener{
@@ -66,7 +68,7 @@ class SignInActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        Log.d("onStart","onStart 실행")
+        Log.d("onResume","onResume 살행")
     }
 
     override fun onResume() {

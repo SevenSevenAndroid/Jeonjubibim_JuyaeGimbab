@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="view"
+            type="android.view.View" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mypage.MyPageActivity">
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager_mypage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_height="500dp" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayout_viewpager_indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:tabIndicator="@null"
+            app:tabGravity="center"
+            app:tabPadding="4dp"
+            app:tabBackground="@drawable/tab_indicator"
+            app:tabPaddingStart="3dp"
+            app:tabPaddingEnd="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewpager_mypage"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
