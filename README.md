@@ -116,7 +116,7 @@ call back
  <img src="https://user-images.githubusercontent.com/58849278/118387809-81bf2900-b65b-11eb-93f7-05cc59745b57.png" width = 60%>
 	<img src="https://user-images.githubusercontent.com/58849278/118387675-ac5cb200-b65a-11eb-9f84-6c9b7668c4d2.png" width = 60%> 
 	
- - Singleton을 멀티스레드 환경에서 사용한다고 했을 때 LazyHolder 클래스를 사용하여 thread-safe 하면서도 성능이 저하되지 않고 (synchronized는 성능 저하 가능성) 사용할 수 있다. 
+ - Singleton을 멀티스레드 환경에서 사용한다고 했을 때 LazyHolder 클래스를 사용하여 thread-safe 하면서도 성능이 저하되지 않고 (synchronized는 성능 저하 가능성) 사용할 수 있습니다. 
 
 ## :pencil: 과제를 통해 배우고 성장한 내용 
 
