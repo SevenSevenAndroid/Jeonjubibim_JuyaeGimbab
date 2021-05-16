@@ -110,6 +110,8 @@ call back
 
 :pencil2: 선택과제에서 구현한 5개의 Retrofit2 통신은 위와 같이 구성을 하였습니다. 
 
+<img src = "https://user-images.githubusercontent.com/58849278/118398498-e6967580-b693-11eb-835b-b73dcad03da4.gif" width = "300" height = "500" >
+
 ## :whale2: Level 3 성장 과제 
 
  - 필수 과제에서 사용해준 Callback을 선택과제에서는 Rxjava 문법을 사용하여 구현을 하여 보다 간결한 비동기 통신을 코드를 작성해보고자 하였습니다. 
