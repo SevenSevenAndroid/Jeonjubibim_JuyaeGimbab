@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".home.view.RepositoryFragment">
+        tools:context=".home.repository.RepositoryFragment">
 
             <com.google.android.material.appbar.AppBarLayout
                 android:id="@+id/toolbar_repository"

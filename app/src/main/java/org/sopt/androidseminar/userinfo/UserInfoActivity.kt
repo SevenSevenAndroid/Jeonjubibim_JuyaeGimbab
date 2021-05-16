@@ -1,12 +1,10 @@
 package org.sopt.androidseminar.userinfo
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import org.sopt.androidseminar.R
 import org.sopt.androidseminar.databinding.ActivityUserInfoBinding
-import org.sopt.androidseminar.home.view.RepositoryFragment
+import org.sopt.androidseminar.home.repository.RepositoryFragment
 
 class UserInfoActivity : AppCompatActivity() {
     lateinit var binding : ActivityUserInfoBinding
