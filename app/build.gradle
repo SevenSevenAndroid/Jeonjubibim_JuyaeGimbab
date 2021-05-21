@@ -72,7 +72,6 @@ dependencies {
 
     //Okhttp3
     implementation 'com.squareup.okhttp3:okhttp:4.9.1'
-    implementation "com.squareup.okhttp3:logging-interceptor"
 
     //Rxjava
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'

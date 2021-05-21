@@ -1,4 +1,4 @@
-package org.sopt.androidseminar
+package org.sopt.androidseminar.di
 
 import dagger.Module
 import dagger.Provides
