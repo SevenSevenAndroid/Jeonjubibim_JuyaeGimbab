@@ -16,5 +16,4 @@ object FollowerDiffCallback : DiffUtil.ItemCallback<ResponseGithubFollowersItem>
     ): Boolean {
         return oldItem == newItem
     }
-
 }

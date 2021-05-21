@@ -17,6 +17,4 @@ interface GithubApi {
     @GET("users/{username}/following")
     fun getFollowing(@Path("username") username: String) : Single<ResponseGithubFollowing>
 
-    
-
 }
