@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
     android:paddingHorizontal="24dp"
-    tools:context=".signin.SignInActivity">
+    tools:context=".signin.view.SignInActivity">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animationview_signup_image"

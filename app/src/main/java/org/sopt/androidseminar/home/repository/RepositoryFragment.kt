@@ -1,4 +1,4 @@
-package org.sopt.androidseminar.home.view
+package org.sopt.androidseminar.home.repository
 
 import android.content.Intent
 import android.net.Uri
@@ -18,7 +18,7 @@ import org.sopt.androidseminar.home.viewmodel.RepositoryViewModel
 
 class RepositoryFragment : Fragment() {
     lateinit var binding: FragmentRepositoryBinding
-    lateinit var followingListAdapter: FollowingListAdapter
+    lateinit var repositoryAdapter: RepositoryAdapter
     private val viewModel: RepositoryViewModel by viewModels()
 
     override fun onCreateView(
@@ -44,8 +44,8 @@ class RepositoryFragment : Fragment() {
     }
 
     private fun initRecyclerView() {
-        followingListAdapter =
-            FollowingListAdapter(object : FollowingListAdapter.OnItemClickListener {
+        repositoryAdapter =
+            RepositoryAdapter(object : RepositoryAdapter.OnItemClickListener {
                 override fun itemClickListener(view: View, position: Int) {
                     val intent = Intent(Intent.ACTION_VIEW)
                     intent.setData(Uri.parse(viewModel.repositories.value?.get(position)?.clone_url))
@@ -53,7 +53,7 @@ class RepositoryFragment : Fragment() {
                 }
             })
         binding.recyclerviewRepositoryList.run {
-            adapter = followingListAdapter
+            adapter = repositoryAdapter
             binding.recyclerviewRepositoryList.addItemDecoration(ItemDecoration(10, 10))
         }
 
@@ -79,12 +79,12 @@ class RepositoryFragment : Fragment() {
         val swipeHelper = SwipeHelper(object: SwipeHelper.ItemTouchCallback{
             override fun changePosition(fromPosition: Int, toPosition: Int) {
                 viewModel.swipeItems(fromPosition,toPosition)
-                followingListAdapter.notifyItemMoved(fromPosition,toPosition)
+                repositoryAdapter.notifyItemMoved(fromPosition,toPosition)
             }
 
             override fun removeItem(position: Int) {
                 viewModel.removeRepository(position)
-                followingListAdapter.notifyItemRemoved(position)
+                repositoryAdapter.notifyItemRemoved(position)
             }
         })
 
@@ -95,7 +95,7 @@ class RepositoryFragment : Fragment() {
 
     private fun updateRepository(){
         viewModel.repositories.observe(viewLifecycleOwner){
-            followingListAdapter.submitList(it)
+            repositoryAdapter.submitList(it)
         }
     }
 }

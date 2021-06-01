@@ -17,7 +17,7 @@
         <activity android:name=".userinfo.UserInfoActivity"></activity>
         <activity android:name=".signup.SignUpActivity" />
         <activity android:name=".home.view.HomeActivity" />
-        <activity android:name=".signin.SignInActivity">
+        <activity android:name=".signin.view.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

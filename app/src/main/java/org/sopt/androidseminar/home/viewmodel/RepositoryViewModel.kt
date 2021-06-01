@@ -6,11 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import org.sopt.androidseminar.api.RetrofitService
-import org.sopt.androidseminar.home.dto.GithubRepo
-import org.sopt.androidseminar.home.dto.RepositoryResponseModelItem
+import org.sopt.androidseminar.api.github.RetrofitService
 import org.sopt.androidseminar.home.dto.ResponseGithubRepository
-import org.sopt.androidseminar.home.view.RepositoryFragment
 
 class RepositoryViewModel : ViewModel() {
 
