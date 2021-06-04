@@ -66,7 +66,6 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun loginButtonClickEvent() {
-        // 서버로 보낼 로그인 데이터 생성
         val requestLoginData = RequestLoginData(
             id = binding.editextSigninId.text.toString(),
             password = binding.editextSigninPwd.text.toString()
