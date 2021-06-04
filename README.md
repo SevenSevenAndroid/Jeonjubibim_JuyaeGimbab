@@ -36,3 +36,5 @@
 
 📘[Fourth Assignment](https://github.com/SevenSevenAndroid/Jeonjubibim_JuyaeGimbab/wiki/BE-SOPT-FOURTH-ASSIGNMENT)
 
+📗[Seventh Assignment](https://github.com/SevenSevenAndroid/Jeonjubibim_JuyaeGimbab/wiki/BE-SOPT-SEVENTH-ASSIGNMENT)
+
