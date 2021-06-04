@@ -36,51 +36,52 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        initButtonClickEvent()
+        //initButtonClickEvent()
         showSignup()
+        setButtonEvent()
         searchUserAuthStorage()
     }
 
-    private fun initButtonClickEvent() {
-
-        binding.btnLogin.setOnClickListener {
-            val requestLoginData = RequestLoginData(
-                id = binding.editextSigninId.text.toString(),
-                password = binding.editextSigninPwd.text.toString()
-            )
-
-            val call: Call<ResponseLoginData> = ServiceCreator.soptService
-                .postLogin(requestLoginData)
-
-            call.enqueue(object : Callback<ResponseLoginData> {
-                override fun onResponse(
-                    call: Call<ResponseLoginData>,
-                    response: Response<ResponseLoginData>
-                ) {
-                    if (response.isSuccessful) {
-                        val data = response.body()?.data
-                        Log.e("success", "로그인 성공")
-                        Toast.makeText(this@SignInActivity, data?.user_nickname, Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this@SignInActivity, HomeActivity::class.java)
-                        startActivity(intent)
-                        showSignup()
-
-                    } else {
-                        showError(response.errorBody())
-                    }
-                }
-                override fun onFailure(call: Call<ResponseLoginData>, t: Throwable) {
-                    Log.d("NetworkTest", "error:$t")
-                }
-            })
-        }
-    }
-
-    fun showError(error: ResponseBody?) {
-        val e = error ?: return
-        val ob = JSONObject(e.string())
-        Log.e("error", ob.getString("message"))
-    }
+//    private fun initButtonClickEvent() {
+//
+//        binding.btnLogin.setOnClickListener {
+//            val requestLoginData = RequestLoginData(
+//                id = binding.editextSigninId.text.toString(),
+//                password = binding.editextSigninPwd.text.toString()
+//            )
+//
+//            val call: Call<ResponseLoginData> = ServiceCreator.soptService
+//                .postLogin(requestLoginData)
+//
+//            call.enqueue(object : Callback<ResponseLoginData> {
+//                override fun onResponse(
+//                    call: Call<ResponseLoginData>,
+//                    response: Response<ResponseLoginData>
+//                ) {
+//                    if (response.isSuccessful) {
+//                        val data = response.body()?.data
+//                        Log.e("success", "로그인 성공")
+//                        Toast.makeText(this@SignInActivity, data?.user_nickname, Toast.LENGTH_SHORT).show()
+//                        val intent = Intent(this@SignInActivity, HomeActivity::class.java)
+//                        startActivity(intent)
+//                        showSignup()
+//
+//                    } else {
+//                        showError(response.errorBody())
+//                    }
+//                }
+//                override fun onFailure(call: Call<ResponseLoginData>, t: Throwable) {
+//                    Log.d("NetworkTest", "error:$t")
+//                }
+//            })
+//        }
+//    }
+//
+//    fun showError(error: ResponseBody?) {
+//        val e = error ?: return
+//        val ob = JSONObject(e.string())
+//        Log.e("error", ob.getString("message"))
+//    }
 
     fun showSignup(){
         binding.textviewSignin.setOnClickListener {
