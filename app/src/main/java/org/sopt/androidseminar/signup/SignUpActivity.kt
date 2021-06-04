@@ -86,8 +86,6 @@ class SignUpActivity : AppCompatActivity() {
 
     }
 
-
-
     fun showError(error: ResponseBody?) {
         val e = error ?: return
         val ob = JSONObject(e.string())
