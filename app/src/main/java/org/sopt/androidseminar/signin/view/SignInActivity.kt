@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import okhttp3.ResponseBody
 import org.json.JSONObject
 import org.sopt.androidseminar.signin.dto.ResponseLoginData
@@ -13,7 +14,11 @@ import org.sopt.androidseminar.api.sopt.ServiceCreator
 import org.sopt.androidseminar.databinding.ActivitySignInBinding
 import org.sopt.androidseminar.signin.dto.RequestLoginData
 import org.sopt.androidseminar.home.view.HomeActivity
+import org.sopt.androidseminar.signin.dto.SoptUserAuthStorage
+import org.sopt.androidseminar.signin.dto.SoptUserInfo
 import org.sopt.androidseminar.signup.SignUpActivity
+import org.sopt.androidseminar.utils.enqueueUtil
+import org.sopt.androidseminar.utils.showToast
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,12 +26,19 @@ import retrofit2.Response
 class SignInActivity : AppCompatActivity() {
     lateinit var binding: ActivitySignInBinding
 
+    private val signUpActivityLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) {
+        binding.editextSigninId.setText(it.data?.getStringExtra("id"))
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initButtonClickEvent()
         showSignup()
+        searchUserAuthStorage()
     }
 
     private fun initButtonClickEvent() {
@@ -78,6 +90,58 @@ class SignInActivity : AppCompatActivity() {
         }
     }
 
+    private fun searchUserAuthStorage() {
+        with(SoptUserAuthStorage.getInstance(this)) {
+            if (hasUserData()) {
+                requestLogin(getUserData().let { RequestLoginData(it.id, it.password) })
+            }
+        }
+    }
+
+    private fun setButtonEvent() {
+        with(binding) {
+            btnLogin.setOnClickListener { loginButtonClickEvent() }
+            textviewSignin.setOnClickListener { startSignUpForResult() }
+        }
+    }
+
+    private fun loginButtonClickEvent() {
+        // 서버로 보낼 로그인 데이터 생성
+        val requestLoginData = RequestLoginData(
+            id = binding.editextSigninId.text.toString(),
+            password = binding.editextSigninPwd.text.toString()
+        )
+        requestLogin(requestLoginData)
+    }
+
+    private fun requestLogin(requestLoginData: RequestLoginData) {
+        val call: Call<ResponseLoginData> = ServiceCreator.soptService
+            .postLogin(requestLoginData)
+        call.enqueueUtil(
+            onSuccess = { response ->
+                val data = response.data
+                showToast(data?.user_nickname.toString())
+                with(SoptUserAuthStorage.getInstance(this)) {
+                    saveUserData(requestLoginData.let { SoptUserInfo(it.id, it.password) })
+                }
+                startHomeActivity()
+            }
+        )
+
+    }
+    private fun startHomeActivity() {
+        startActivity(
+            Intent(this, HomeActivity::class.java)
+        )
+        finish()
+    }
+    private fun startSignUpForResult() {
+        signUpActivityLauncher.launch(
+            Intent(this, SignUpActivity::class.java)
+        )
+    }
+
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
@@ -96,3 +160,4 @@ class SignInActivity : AppCompatActivity() {
     }
 
 }
+
