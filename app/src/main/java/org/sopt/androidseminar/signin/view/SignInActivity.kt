@@ -99,20 +99,6 @@ class SignInActivity : AppCompatActivity() {
             Intent(this, SignUpActivity::class.java)
         )
     }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK) {
-            when (requestCode) {
-                SIGN_UP_RESULT_CODE -> {
-                    binding.editextSigninId.setText(data!!.getStringExtra("id"))
-                    binding.editextSigninPwd.setText(data!!.getStringExtra("pwd"))
-
-                }
-            }
-        }
-    }
-
     companion object {
         private const val SIGN_UP_RESULT_CODE = 100
     }

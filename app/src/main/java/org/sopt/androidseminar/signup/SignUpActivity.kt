@@ -86,12 +86,10 @@ class SignUpActivity : AppCompatActivity() {
         } else {
             val intent = Intent()
             intent.putExtra("id", signupName.toString())
-            intent.putExtra("pwd", signupPwd.toString())
+            intent.putExtra("password", signupPwd.toString())
             setResult(Activity.RESULT_OK, intent)
             finish()
-
         }
-
     }
 
     fun showError(error: ResponseBody?) {
