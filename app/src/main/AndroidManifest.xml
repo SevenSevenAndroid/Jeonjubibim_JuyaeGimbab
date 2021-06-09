@@ -23,6 +23,7 @@
         <activity android:name=".userinfo.UserInfoActivity" />
         <activity android:name=".signup.SignUpActivity" />
         <activity android:name=".home.view.HomeActivity" />
+
         <activity android:name=".signin.view.SignInActivity">
 
         </activity>
