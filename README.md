@@ -29,7 +29,7 @@
 | [LiveData](https://github.com/ravi8x/LiveData)                   | LifeCycleOwner 관찰자 등록        |    
 | [Dagger2](https://github.com/google/dagger)                   | 의존성 주입        |  
 | [CircleImageview](https://github.com/hdodenhof/CircleImageView)                   | Round Image        |  
-| [Firebase](https://github.com/firebase/)                   | Google Firebase 소셜 로그인        |  
+| [Firebase](https://github.com/firebase/)                   | Firebase Sign In        |  
 
 
  
