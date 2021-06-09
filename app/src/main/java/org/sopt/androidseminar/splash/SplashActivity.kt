@@ -1,4 +1,4 @@
-package org.sopt.androidseminar
+package org.sopt.androidseminar.splash
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +27,6 @@ class SplashActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val DURATION : Long= 5000
+        private const val DURATION : Long= 4000
     }
 }
