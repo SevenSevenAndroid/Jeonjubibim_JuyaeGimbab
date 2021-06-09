@@ -3,7 +3,9 @@
     <string name="facebook_app_id">190801579600464</string>
     <string name="fb_login_protocol_scheme">fb190801579600464</string>
 
-
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="no_description">NO DESCRIPTION</string>
+
+    <string name = "client_id">1060778897143-t881i93ea9p4pblio2jgq5vfq5nhss22.apps.googleusercontent.com</string>
+
 </resources>
