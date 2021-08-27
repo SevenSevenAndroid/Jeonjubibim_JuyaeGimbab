@@ -11,6 +11,10 @@ import org.json.JSONObject
 import org.sopt.androidseminar.api.sopt.ServiceCreator
 import org.sopt.androidseminar.databinding.ActivitySignUpBinding
 import org.sopt.androidseminar.signin.view.SignInActivity
+import org.sopt.androidseminar.utils.slideDown
+import org.sopt.androidseminar.utils.slideLeft
+import org.sopt.androidseminar.utils.slideRight
+import org.sopt.androidseminar.utils.slideUp
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,6 +27,10 @@ class SignUpActivity : AppCompatActivity() {
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initActivityResult()
+        slideLeft()
+        slideRight()
+        slideUp()
+        slideDown()
     }
 
     private fun initActivityResult() {
@@ -78,15 +86,11 @@ class SignUpActivity : AppCompatActivity() {
         } else {
             val intent = Intent()
             intent.putExtra("id", signupName.toString())
-            intent.putExtra("pwd", signupPwd.toString())
+            intent.putExtra("password", signupPwd.toString())
             setResult(Activity.RESULT_OK, intent)
             finish()
-
         }
-
     }
-
-
 
     fun showError(error: ResponseBody?) {
         val e = error ?: return

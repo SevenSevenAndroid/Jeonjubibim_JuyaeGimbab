@@ -19,6 +19,9 @@ import org.sopt.androidseminar.home.viewmodel.FollowerListViewModel
 import org.sopt.androidseminar.home.viewmodel.FollowingListViewModel
 import org.sopt.androidseminar.home.viewmodel.ReqresListViewModel
 import org.sopt.androidseminar.mypage.MyPageActivity
+import org.sopt.androidseminar.utils.slideLeft
+import org.sopt.androidseminar.utils.slideRight
+import org.sopt.androidseminar.utils.slideUp
 import retrofit2.Call
 import retrofit2.Callback
 
@@ -35,7 +38,6 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         viewModel.getFriendsList(2)
         followerViewModel.showFollowers("jooyae")
         followingViewModel.showFollowing("jooyae")
@@ -44,6 +46,11 @@ class HomeActivity : AppCompatActivity() {
         showReqresList()
         showFollowerList()
         showFollowingList()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        slideUp()
     }
 
     fun initButtonClick(){
@@ -95,9 +102,4 @@ class HomeActivity : AppCompatActivity() {
             }
         }
     }
-
-
-
-
-
 }

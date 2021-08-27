@@ -21,5 +21,17 @@
     <color name = "orange_four">#FFFA6B3E</color>
     <color name="gray_two">#FF2B2A2A</color>
     <color name="orange_five">#FFF3E0</color>
+    <color name="spalsh_background">#3490dc</color>
+    <color name ="ube">#A4A1E6</color>
+    <color name ="beau_blue">#BED0E8</color>
+    <color name="ivory">#FFFFEB</color>
+    <color name="colombia_blue">#CAE0EF</color>
+    <color name="blue_yonder">#9EA9CD</color>
+    <color name="feb_first">#accbee</color>
+    <color name="feb_two">#e7f0fd</color>
+    <color name="shadow_blue">#7B8FA5</color>
+    <color name="shadow_blue2">#769ECB</color>
+    <color name ="splash_title">#6664A3</color>
+
 
 </resources>
